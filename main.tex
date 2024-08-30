@@ -1,0 +1,68 @@
+\documentclass[12pt,onecolumn,a4paper]{book}
+
+%% 引用宏包 %%
+\usepackage{ctex}
+\usepackage{titlesec}
+\usepackage{amsmath,amssymb,amsthm,multicol,siunitx,graphicx,enumitem,booktabs,appendix}
+\usepackage{booktabs}
+\usepackage{tabularx,subcaption,arydshln}
+\usepackage{tikz}
+\usepackage{arydshln}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usepackage[edges]{forest}
+\usepackage{pgfplots}
+\usepackage{bm}
+
+\usetikzlibrary{matrix, positioning, arrows}
+\usepackage{imakeidx}
+\usepackage{hyperref}
+
+\usepackage[most]{tcolorbox}
+% 定义 block 环境
+\newenvironment{block}[1]{
+    \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=#1]
+}{
+    \end{tcolorbox}
+}
+
+
+%% 定义新定理 %%
+\newtheorem*{example}{例}
+\newtheorem*{lemma}{引理}
+\newtheorem*{note}{注}
+
+%% 设置初始编号 %%
+\setcounter{section}{0}
+\numberwithin{table}{subsection}
+\numberwithin{equation}{section}
+
+%% 设置超链接 %%
+\hypersetup{
+    hidelinks, % 取消红框
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=black
+}
+
+%% BibTeX %%
+\bibliographystyle{plain}
+% \bibliography{}
+
+%% 标题 %%
+\title{概率论与随机过程}
+\author{AnZrew}
+\date{甲辰春夏于清华园}
+
+% \makeindex 
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{chap1.tex}
+
+
+\end{document}

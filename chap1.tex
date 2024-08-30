@@ -1,0 +1,55 @@
+\chapter{概率与概率空间}
+
+\section{随机事件与概率}
+
+\subsection{随机事件与概率}
+
+\subsubsection{事件与样本空间}
+
+一般地，我们把实验的每一种可能的结果称为一个\textbf{基本事件}（或称\textbf{样本点}），称所有基本事件的全体为该试验的\textbf{样本空间}，记为$\Omega$。
+
+$\Omega$的一个子集合$A$，可以看作是一个随机事件。
+
+从数学的角度看，与试验相关的每个“事件”都可以描述称样本空间$\Omega$的一个子集$A$，反之亦然。
+
+在一次试验中，我们得到了一个结果$\omega \in \Omega$。如果$\omega \in A$，我们就称事件$A$发生了；否则就说$A$没有发生。
+
+如果$\omega \in \Omega$恒成立，我们称$\Omega$为必然事件，其反面为$\Phi$，称为不可能事件。
+
+\subsubsection{古典概型}
+
+古典概型描述了一个随机试验所包含的单位事件都是有限的，且每个单位事件发生的可能性均相等的情况。
+
+\begin{equation}
+    P(A) = \frac{|A|}{|\Omega|}
+\end{equation}
+
+\subsubsection{事件之间的关系与运算}
+
+事件之间的关系
+
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item 事件的包含：$A \subset B$
+    \item 事件的相等：$A = B$
+    \item 事件的对立：$A \cap A' = \Phi$，$A \cup A' = \Omega$
+\end{itemize}
+
+事件之间的运算
+
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item 并：$A \cup B$
+    \item 交：$A \cap B = AB$
+    \item 差：$A - B$
+    \item 有限个事件的并：$\bigcup_{i=1}^n A_i$
+    \item 有限个事件的交：$\bigcap_{i=1}^n A_i$
+\end{itemize}
+
+事件之间的运算法则
+
+\begin{itemize}[itemsep=0pt,parsep=0pt]
+    \item 交换律：$A \cup B = B \cup A$，$A \cap B = B \cap A$
+    \item 结合律：$(A \cup B) \cup C = A \cup (B \cup C)$，$(A \cap B) \cap C = A \cap (B \cap C)$
+    \item 分配律：$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$，$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+    \item 对偶律：$(A \cup B)' = A' \cap B'$，$(A \cap B)' = A' \cup B'$
+    \item De Morgan律：$(A \cup B)' = A' \cap B'$，$(A \cap B)' = A' \cup B'$
+\end{itemize}

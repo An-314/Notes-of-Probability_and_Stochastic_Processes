@@ -1,4 +1,4 @@
-#import "@preview/physica:0.9.2": *
+#import "@preview/scripst:1.1.2": *
 
 = 概率与概率空间
 
@@ -23,38 +23,38 @@ _从数学的角度看，与试验相关的每个“事件”都可以描述称�
 
 *古典概型*描述了一个随机试验所包含的单位事件都是有限的，且每个单位事件发生的可能性均相等的情况。
 $
-P(A) = (|A|)/(|Omega|)
+  P(A) = (|A|)/(|Omega|)
 $
 
 ==== 事件之间的关系与运算
 
 - 事件之间的关系
 
-    - 事件的包含：$A subset B$
-    - 事件的相等：$A = B$
-    - 事件的对立：$A sect A' = emptyset$，$A union A' = Omega$
+  - 事件的包含：$A subset B$
+  - 事件的相等：$A = B$
+  - 事件的对立：$A inter A' = emptyset$，$A union A' = Omega$
 
 - 事件之间的运算
 
-    - 并：$A union B$
-    - 交：$A sect B = A B$
-    - 差：$A - B$
-    - 有限个事件的并：$union.big_(i=1)^n A_i$
-    - 有限个事件的交：$sect.big_(i=1)^n A_i$
+  - 并：$A union B$
+  - 交：$A inter B$
+  - 差：$A - B$
+  - 有限个事件的并：$union.big_(i=1)^n A_i$
+  - 有限个事件的交：$inter.big_(i=1)^n A_i$
 
 - 事件的运算定律
 
-    - 交换律：$A union B = B union A$，$A sect B = B sect A$
-    - 结合律：$(A union B) union C = A union (B union C)$，$(A sect B) sect C = A sect (B sect C)$
-    - 分配律：$A sect (B union C) = (A sect B) union (A sect C)$，$A union (B sect C) = (A union B) sect (A union C)$
-    - 对偶律（De Morgan）：$(A')' = A$，$(A B)' = A' union B'$，$(A union B)' = A' sect B'$
+  - 交换律：$A union B = B union A$，$A inter B = B inter A$
+  - 结合律：$(A union B) union C = A union (B union C)$，$(A inter B) inter C = A inter (B inter C)$
+  - 分配律：$A inter (B union C) = (A inter B) union (A inter C)$，$A union (B inter C) = (A union B) inter (A union C)$
+  - 对偶律（De Morgan）：$(A')' = A$，$(A inter B)' = A' union B'$，$(A union B)' = A' inter B'$
 
 
 ==== 几何概型
 
 *几何概型*：每个事件发生的概率只与构成该事件区域的长度（面积或体积）成比例，即
 $
-P(A) = (L(A))/(L(Omega))
+  P(A) = (L(A))/(L(Omega))
 $
 这里$Ω$为可以度量的区域，$A$为$Ω$的可度量子集，$L(A)$表示$A$的度量。
 
@@ -67,17 +67,17 @@ _Bucal(F)on投针问题：一根长度为$l$的针随机地抛向一块地板，
 === 概率空间
 
 事件族（$Ω$的子集族）$cal(F)$ 称为*$σ−$域*（也称为$σ-$代数或事件体），如果它满足下列条件：
-- $Ω ∈ cal(F)$ 
+- $Ω ∈ cal(F)$
 - 若$A ∈ cal(F)$，则$A^c ∈ cal(F)$
 - 若$A_1, A_2, dots ∈ cal(F)$，则$union.big_(i=1)^oo A_i ∈ cal(F)$
 由此定义的$cal(F)$称为*$σ−$域*。
 
-*Kolmogorov概率公理化定义*：$P$是$cal(F)$上的非负值函数，即对每一事件$A  in cal(F)$ ，都可定义一个数$P(A)$，满足下列条件：
+*Kolmogorov概率公理化定义*：$P$是$cal(F)$上的非负值函数，即对每一事件$A in cal(F)$ ，都可定义一个数$P(A)$，满足下列条件：
 - 非负性：$P(A) >= 0$
 - 规范性：$P(Ω) = 1$
 - 可数可加性： 若$A_1, A_2, dots ∈ cal(F)$，且$A_i A_j = emptyset$，则
 $
-P(union.big_(i=1)^oo A_i) = sum_(i=1)^oo P(A_i)
+  P(union.big_(i=1)^oo A_i) = sum_(i=1)^oo P(A_i)
 $
 则称$P(A)$为事件$A$的*概率*。
 
@@ -87,16 +87,16 @@ _注：_
 - 由上述公理体系，易见P(∅) = 0。
 - 由可数可加性可得有限可加性，即
 $
-P(A_1 A_2 dots A_n) = sum_(i=1)^n P(A_i)
+  P(A_1 A_2 dots A_n) = sum_(i=1)^n P(A_i)
 $
-上式中$A_1, A_2,..., A_n in cal(F) $为两两互不相容的事件。
+上式中$A_1, A_2,..., A_n in cal(F)$为两两互不相容的事件。
 - 古典概型仅仅是Kolmogorov模型中的一个非常小的子模型。
 - 如果$Ω$包含可数个点，我们就不能对基本事件作等可能假设，但仍然可以对每个${omega}$指定概率，之后依然有$P(A) = sum_(omega in A) P(omega)$。
 - 如果Ω包含不可数多个点，每个单点集是一个基本事件，但我们不能简单指定每个基本事件的概率，否则会破坏公理$P(Ω) = 1$。
 
 _一个例子：将一均匀硬币连续的投掷，直到首次出现正面。令$omega^((i))$表示“首次正面出现在第$i$次投掷”；并以$omega^((oo))$表示“正面永远不出现”。因此该试验的样本空间为_
 $
-Ω = {omega^((1)), omega^((2)), dots, omega^((oo))}
+  Ω = {omega^((1)), omega^((2)), dots, omega^((oo))}
 $
 _我们可以定义概率$P(omega^((i))) = 1/2^i$，$P(omega^((oo))) = 0$。_
 
@@ -109,48 +109,48 @@ _我们可以定义概率$P(omega^((i))) = 1/2^i$，$P(omega^((oo))) = 0$。_
 
   _证明：$A = A' union (A - A')$，由可加性得_
   $
-  P(A) = P(A' union (A - A')) = P(A') + P(A - A') = 1 - P(A')
+    P(A) = P(A' union (A - A')) = P(A') + P(A - A') = 1 - P(A')
   $
 
 - *减法公式*：$P(A - B) = P(A) - P(A B)$
 
-    _证明:考虑$A - B = A - A B = A (1 - B)$，由求逆公式得_
-    $
+  _证明:考虑$A - B = A - A B = A (1 - B)$，由求逆公式得_
+  $
     P(A - B) = 1 - P(A (1 - B)) = 1 - P(A) + P(A B)
-    $
+  $
 
 - *一般的加法公式*：$P(A union B) = P(A) + P(B) - P(A B) <= P(A) + P(B)$
 
-    _证明：$A B = A - (A - B)$，由减法公式得_
-    $
+  _证明：$A B = A - (A - B)$，由减法公式得_
+  $
     P(A B) = P(A) - P(A - B) = P(A) - P(A) + P(B) = P(A) + P(B) - P(A B)
-    $
+  $
 
-    一般地：
-    $
-    P(union.big_(i=1)^n A_i) = sum_(i=1)^n P(A_i) - sum_(1 <= i < j <= n) P(A_i A_j) 
+  一般地：
+  $
+    P(union.big_(i=1)^n A_i) = sum_(i=1)^n P(A_i) - sum_(1 <= i < j <= n) P(A_i A_j)
     + sum_(1 <= i < j < k <= n) P(A_i A_j A_k) - dots + (-1)^(n-1) P(A_1 A_2 dots A_n)
-    $
+  $
 
 - *有限可加性*：若$A_1, A_2, dots in cal(F)$，且$A_i A_j = emptyset$，则
 
-    $
+  $
     P(union.big_(i=1)^oo A_i) = sum_(i=1)^oo P(A_i)
-    $
+  $
 
 - *下连续性*：设${A_n}$是$cal(F)$中的非减事件序列（即$A_n in cal(F)$，并且$A_n ⊂ A_(n+1)$），则
 
-    $
+  $
     P(union.big_(n=1)^oo A_n) = lim_(n->oo) P(A_n)
-    $
+  $
 
 - *上连续性*：设${A_n}$是$cal(F)$中的非增事件序列（即$A_n in cal(F)$，并且$A_(n+1) ⊂ A_n$），则
 
-    $
-    P(sect.big_(n=1)^oo A_n) = lim_(n->oo) P(A_n)
-    $
+  $
+    P(inter.big_(n=1)^oo A_n) = lim_(n->oo) P(A_n)
+  $
 
-_注:实际上，概率的上连续性与下连续性是等价的。因此，概率既有上连续性也有下连续性，统称为连续性。_ 
+_注:实际上，概率的上连续性与下连续性是等价的。因此，概率既有上连续性也有下连续性，统称为连续性。_
 
 == 条件概率
 
@@ -160,12 +160,12 @@ _注:实际上，概率的上连续性与下连续性是等价的。因此，概
 
 从古典概型入手：
 $
-P(A|B) = (|A B|)/(|B|) = ((|A B|)/(|Omega|))/((|B|)/(|Omega|)) = P(A B)/P(B)
+  P(A|B) = (|A B|)/(|B|) = ((|A B|)/(|Omega|))/((|B|)/(|Omega|)) = P(A B)/P(B)
 $
 
-在Kolmogorov模型中，我们可以定义条件概率为：设$(Ω, cal(F) , P)$为概率空间，$B in cal(F) $，且$P(B) > 0$，则对任何$A in cal(F)$ ，定义
+在Kolmogorov模型中，我们可以定义条件概率为：设$(Ω, cal(F) , P)$为概率空间，$B in cal(F)$，且$P(B) > 0$，则对任何$A in cal(F)$ ，定义
 $
-P(A|B) = P(A B)/P(B)
+  P(A|B) = P(A B)/P(B)
 $
 验证$P(A|B)$满足概率的三个公理，即可证明$P(A|B)$是$Ω$上的概率。
 
@@ -175,13 +175,13 @@ $
 
 设$A$与$B$是两个事件，满足$P(A) > 0, P(B) > 0$，则由条件概率定义，可推出
 $
-P(A B) = P(A)P(B|A) = P(B)P(A|B):
+  P(A B) = P(A)P(B|A) = P(B)P(A|B):
 $
 推广到多个事件的情况，我们可以得到下面概率的乘法公式。
 
-*乘法公式*：设$(Ω, cal(F) , P)$是个概率空间，并且$A_1, A_2, dots, A_n in cal(F)$，并且有$P(sect.big_(i=1)^n A_i) > 0$，则
+*乘法公式*：设$(Ω, cal(F) , P)$是个概率空间，并且$A_1, A_2, dots, A_n in cal(F)$，并且有$P(inter.big_(i=1)^n A_i) > 0$，则
 $
-P(sect.big_(i=1)^n A_i) = P(A_1)P(A_2|A_1)P(A_3|A_1 A_2) dots P(A_n|sect.big_(i=1)^(n-1) A_i)
+  P(inter.big_(i=1)^n A_i) = P(A_1)P(A_2|A_1 inter A_2) dots P(A_n|inter.big_(i=1)^(n-1) A_i)
 $
 
 ==== 全概率公式
@@ -195,24 +195,24 @@ $
 
 *全概率公式*：设$B_i$为$Ω$的一个正划分，$A in cal(F)$，则
 $
-P(A) = sum_(i=1)^n P(A|B_i)P(B_i)
+  P(A) = sum_(i=1)^n P(A|B_i)P(B_i)
 $
 
 _证明：_
 $
-A &= A sect Omega\
-&= A sect (union.big_(i=1)^n B_i)\
-&= union.big_(i=1)^n (A sect B_i)
+  A & = A inter Omega \
+    & = A inter (union.big_(i=1)^n B_i) \
+    & = union.big_(i=1)^n (A inter B_i)
 $
 且其中
 $
-A  B_i sect A  B_j = emptyset, i ≠ j
+  (A inter B_i) inter (A inter B_j) = emptyset, i != j
 $
 因此
 $
-P(A) &= P(union.big_(i=1)^n (A sect B_i))\
-&= sum_(i=1)^n P(A sect B_i)\
-&= sum_(i=1)^n P(A|B_i)P(B_i)
+  P(A) & = P(union.big_(i=1)^n (A inter B_i)) \
+       & = sum_(i=1)^n P(A inter B_i) \
+       & = sum_(i=1)^n P(A|B_i)P(B_i)
 $
 
 如果我们把$B_i$看成是导致事件$A$发生的各种可能原因，根据全概率公式，事件$A$发生的概率即为该事件$A$在各种原因$B_i$下发生的条件概率的加权平均，其权重即为$P(B_i)$。
@@ -223,7 +223,7 @@ _例子：Polya坛子模型_
 
 *Bayes公式*：设$B_i$为$Ω$的一个正划分，$A in cal(F)$，且$P(A) > 0$，则
 $
-P(B_i|A) = (P(A|B_i)P(B_i))/P(A) = (P(A|B_i)P(B_i))/(sum_(j=1)^n P(A|B_j)P(B_j))
+  P(B_i|A) = (P(A|B_i)P(B_i))/P(A) = (P(A|B_i)P(B_i))/(sum_(j=1)^n P(A|B_j)P(B_j))
 $
 在直观上，我们把$B_i$看成是导致事件$A$发生的各种可能原因，$P(B_i)$可以看作事件$B_i$发生的*先验概率*。如果我们知道$A$发生了，那么这个新的信息可以用于对事件$B_i$发生的概率做重新评估，即利用条件$P(B_i|A)$作为得到“$A$发生”之后的重估，称为事件$B_i$的*后验概率*。
 
@@ -231,7 +231,7 @@ $
 
 ==== 两个事件的独立性和相关性
 
-设$(Ω, F , P)$是一概率空间，事件$A,B in cal(F) $满足$P(B) > 0$。一般来说，
+设$(Ω, F , P)$是一概率空间，事件$A,B in cal(F)$满足$P(B) > 0$。一般来说，
 事件$A$发生的概率$P(A)$和事件$B$发生条件下事件$A$发生的条件概率$P(A|B)$是有差异的，这反映了$B$发生影响着$A$发生的可能性。
 
 - 若P$(A|B) > P(A)$，则表明$B$发生使$A$发生的可能性增大；
@@ -239,19 +239,19 @@ $
 - 若P$(A|B) = P(A)$，则表明$B$发生与否对$A$发生的可能性没有影响——*独立*。
 
 $
-P(A|B) = P(A) <=> P(A B) = P(A)P(B)
+  P(A|B) = P(A) <=> P(A B) = P(A)P(B)
 $
-*事件A与事件B相互独立。* 
+*事件A与事件B相互独立。*
 
 设$0 < P(A) < 1$; $0 < P(B) < 1$，称*相关系数*
 $
-r(A, B) = (P(A B) - P(A)P(B))/sqrt(P(A)(1 - P(A))P(B)(1 - P(B)))
+  r(A, B) = (P(A B) - P(A)P(B))/sqrt(P(A)(1 - P(A))P(B)(1 - P(B)))
 $
 我们有如下结论：
 - $r(A, B) = 0$当且仅当A与B相互独立。
 - $|r(A, B)| ≤ 1$。
-    
-    _证明：利用$P(A B)-P(A)P(B) <= P(A)(1-P(B))$（前者为正）；$P(A B)-P(A)P(B) <= (1-P(A))(1-P(B))$（前者为负）即可。_ 
+
+  _证明：利用$P(A B)-P(A)P(B) <= P(A)(1-P(B))$（前者为正）；$P(A B)-P(A)P(B) <= (1-P(A))(1-P(B))$（前者为负）即可。_
 - $r(A, B) = 1$当且仅当$P(A) = P(A B) = P(B)$，即$A$与$B$几乎处处相同；
 - $r(A, B) = −1$当且仅当P(A) = P(AB^c) = P(B^c)，即$A$与$B^c$几乎处处相同。
 - $r(A, B) > 0 <=> P(A|B) > P(A) <=> P(B|A) > P(B)$，称为$A,B$正相关；
@@ -263,7 +263,7 @@ _注：这个相关系数对于随机变量就是线性相关系数，并不是�
 
 若事件$A, B, C$满足
 $
-P(A B|C) = P(A|C)P(B|C)
+  P(A B|C) = P(A|C)P(B|C)
 $
 则称事件$A$与事件$B$在事件$C$下*条件独立*。
 
@@ -275,17 +275,17 @@ $
 - $P(B|A^c C) = P(B|C)$
 - $P(A B^c|C) = P(A|C)P(B^c|C)$
 
-==== 多个事件的独立性 
+==== 多个事件的独立性
 
 设$A_1, A_2, dots, A_n in cal(F)$，若对于任意$i,j$，都有
 $
-P(A_i A_j) = P(A_i)P(A_j)
+  P(A_i A_j) = P(A_i)P(A_j)
 $
 则称事件$A_1, A_2, dots, A_n$*两两独立*。
 
 若对任意的$1 ≤ i_1 < i_2 < dots < i_k ≤ n$，都有
 $
-P(A_(i_1) A_(i_2) dots A_(i_k)) = P(A_(i_1))P(A_(i_2)) dots P(A_(i_k))
+  P(A_(i_1) A_(i_2) dots A_(i_k)) = P(A_(i_1))P(A_(i_2)) dots P(A_(i_k))
 $
 则称事件$A_1, A_2, dots, A_n$*相互独立*。
 
@@ -303,6 +303,6 @@ $
 
 对于事件$A_i ="第i个元件正常工作"$，$B = "串联系统正常工作"$，$C = "并联系统正常工作"$，则有
 $
-P(B) = P(A_1 A_2 dots A_n) = P(A_1)P(A_2) dots P(A_n)\
-P(C) = P(union.big _(i=1)^n A_i) = 1 - P(A_1^c A_2^c dots A_n^c)
+  P(B) = P(A_1 A_2 dots A_n) = P(A_1)P(A_2) dots P(A_n)\
+  P(C) = P(union.big_(i=1)^n A_i) = 1 - P(A_1^c A_2^c dots A_n^c)
 $
